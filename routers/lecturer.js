@@ -35,7 +35,7 @@ router.post('/login',async(req,res)=>{
         if(await bcrypt.compare(password,lecturer.password)){
             user = {name:lecturer.name,lecturerid,course:lecturer.courses.course}
             const authkey = jwt.sign(user,'SECRET_KEY')
-            res.json({message:"logged in succefully"})
+            res.json({message:"logged in succefully",authkey})
         }else{
             res.status(401).json({message:'password is incorrect'})
         }

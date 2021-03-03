@@ -1,3 +1,10 @@
+all requests, POST or GET,apart from login and register, should have
+
+req.headers{
+    Authorization:authkey
+}
+
+
 student/
 register POST
 req.body{
@@ -13,6 +20,9 @@ login: POST
 req.body{
     matric_number
     password
+}
+res.body{
+    authkey:JWT token
 }
 
 add-courses: POST
@@ -58,6 +68,9 @@ req.body{
     lecturerid,
     password
 }
+res.body{
+    accessToken:JWT token
+}
 
 /activate-attendance:POST
 
@@ -85,6 +98,9 @@ admin
 req.body{
     id,
     password
+}
+res.body{
+    authkey:JWT token
 }
 
 /get-students:GET

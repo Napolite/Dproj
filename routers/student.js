@@ -48,7 +48,7 @@ router.post('/login',async(req,res)=>{
 			authkey = jwt.sign(user,'SECRET_KEY')
 			res.status(200).json({
 				message:"successful",
-				acessToken:authkey,
+				authkey,
 			})
 		}else{
 			res.status(201).json({message:'Password incorrect'})

@@ -15,6 +15,7 @@ router.post('/login',async(req,res)=>{
         if(await bcrypt.compare(password,admin.password)){
             user = {name:admin,id:admin}
             accessToken = jwt.sign(user,'SECRET_KEY')
+            res.json({authkey:accessToken})
         }else{
             res.json({message:"password is incorrect"})
         }
