@@ -1,0 +1,140 @@
+student/
+register POST
+req.body{
+        name,
+		matric_number,
+		department,
+		level,
+		gender,
+		password,
+}
+
+login: POST
+req.body{
+    matric_number
+    password
+}
+
+add-courses: POST
+req.body{
+    courses:type[array]
+}
+
+profile:GET
+res.body{
+        name,
+		matric_number,
+		department,
+		level,
+		gender,
+		password,
+}
+
+get-courses: GET
+res.body{
+    courses:array
+}
+
+mark-attendance: POST
+req.headers{
+    course
+}
+
+
+
+
+lecturer/
+register:POST
+req.body{
+    lecturerid,
+    course,
+    session,
+    name,
+    password
+}
+
+login:POST
+req.body{
+    lecturerid,
+    password
+}
+
+/activate-attendance:POST
+
+/deactivate-attendance:POST
+
+/profile:GET
+res.body{
+  lecturerid,
+    course,
+    session,
+    name,
+    password
+}
+
+/view-attendance GET
+res.body{
+    date,
+    course,
+    student
+}
+
+admin
+
+/login:POST
+req.body{
+    id,
+    password
+}
+
+/get-students:GET
+res.body{
+    students:array of objects(just consume the name and matric_number)
+}
+
+/get-student:GET
+res.body{
+        name,
+		matric_number,
+		department,
+		level,
+		gender,
+		password,
+}
+
+add-course:POST
+req.headers{
+    matric_number
+}
+req.body{
+    courses:array
+}
+
+/register-student:POST
+req.body{
+       name,
+		matric_number,
+		department,
+		level,
+		gender,
+		password,
+}
+
+/register-lecturer:POST
+req.body{
+    lecturerid,course,session,name,password
+}
+
+
+/view-courses:GET
+res.body{
+    courses
+}
+
+/view-attendance:GET
+req.headers{
+    course
+}
+res.body{
+    attendance:{course,date,students}
+}
